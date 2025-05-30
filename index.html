@@ -67,7 +67,6 @@
     .hero {
       background-color: #F9FAFC;
       padding: 50px 0 50px 0;
-      /* vamos controlar o padding via container */
     }
 
     .hero-container {
@@ -81,7 +80,6 @@
       padding: 0 20px;
     }
 
-    /* Imagem mais próxima da borda esquerda no desktop */
     .hero-image {
       flex: 0 0 auto;
       max-width: 200px;
@@ -89,7 +87,7 @@
       border-radius: 8px;
       object-fit: cover;
       height: auto;
-      margin-left: 0; /* Sem margem à esquerda */
+      margin-left: 0;
     }
 
     .hero-text {
@@ -153,14 +151,27 @@
       color: #ffffff;
     }
 
-    .contact-card a {
-      color: #c8d8ff;
+    .contact-button {
+      display: inline-block;
+      background-color: #0b1740; /* azul escuro */
+      color: white;
+      text-align: center;
+      padding: 10px 18px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
       text-decoration: none;
-      font-weight: 500;
     }
 
-    .contact-card a:hover {
-      text-decoration: underline;
+    .contact-button:hover,
+    .contact-button:focus {
+      background-color: #071028;
+      outline: none;
     }
 
     section {
@@ -319,7 +330,7 @@
 
       .hero-image {
         order: 1;
-        margin-left: 0; /* imagem colada à borda */
+        margin-left: 0;
       }
 
       .hero-text {
@@ -377,57 +388,58 @@
       </div>
       <div class="contact-card">
         <h3>Entre em Contato</h3>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/556294992706" target="_blank">(62) 9499-2706</a></p>
-        <p><strong>Instagram:</strong> <a href="https://instagram.com/wanderson_morais.adv" target="_blank">@wanderson_morais.adv</a></p>
-        <p><strong>Email:</strong> <a href="mailto:wandersonmoraisadv@outlook.com">wandersonmoraisadv@outlook.com</a></p>
+        <a href="https://wa.me/556294992706" target="_blank" class="contact-button" aria-label="WhatsApp">
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/wanderson_morais.adv" target="_blank" class="contact-button" aria-label="Instagram">
+          Instagram
+        </a>
+        <a href="mailto:wandersonmoraisadv@outlook.com" class="contact-button" aria-label="Email">
+          Email
+        </a>
       </div>
     </div>
   </section>
 
   <section id="sobre">
-    <h2>Sobre o Advogado</h2>
-    <p>
-      Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.
-    </p>
+    <h2>Sobre Wanderson Morais</h2>
+    <p>Advogado com ampla experiência em Direito Civil, Trabalhista e Empresarial. Apaixonado por soluções jurídicas que promovam a segurança e o crescimento dos clientes.</p>
   </section>
 
   <section id="atuacao">
     <h2>Áreas de Atuação</h2>
     <div class="areas">
-      <div class="area"><strong>Direito Civil</strong><br />Contratos, responsabilidade civil, indenizações.</div>
-      <div class="area"><strong>Família e Sucessões</strong><br />Divórcios, guarda, heranças, pensão alimentícia.</div>
-      <div class="area"><strong>Direito do Consumidor</strong><br />Defesa do consumidor e litígios com empresas.</div>
-      <div class="area"><strong>Direito Trabalhista</strong><br />Reclamações, rescisões e direitos trabalhistas.</div>
-      <div class="area"><strong>Direito Empresarial</strong><br />Assessoria jurídica para empresas e contratos.</div>
+      <div class="area">Direito Civil</div>
+      <div class="area">Direito Trabalhista</div>
+      <div class="area">Direito Empresarial</div>
+      <div class="area">Direito de Família</div>
+      <div class="area">Direito Penal</div>
+      <div class="area">Direito Imobiliário</div>
     </div>
   </section>
 
   <section id="blog">
-    <h2>Blog Jurídico</h2>
-    <p>
-      Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.
-    </p>
+    <h2>Blog</h2>
+    <p>Em breve, conteúdos jurídicos, notícias e análises relevantes para você.</p>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>
-      Telefone/WhatsApp: +55 62 9267-0344<br />
-      Email: wandersonmoraisadv@outlook.com
-    </p>
-    <form action="mailto:wandersonmoraisadv@outlook.com" method="post" enctype="text/plain">
+    <form action="mailto:wandersonmoraisadv@outlook.com" method="POST" enctype="text/plain">
       <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu email" required />
-      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-      <button type="submit">Enviar Mensagem</button>
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
   <footer>
-    <p>© 2025 Wanderson Morais Advocacia. Todos os direitos reservados.</p>
-    <p>116 Rua João de Abreu, Goiânia, Goiás</p>
+    &copy; 2025 Wanderson Morais - Todos os direitos reservados.
   </footer>
 
-  <a href="#inicio" class="back-to-top">↑ Início</a>
+  <button class="back-to-top" aria-label="Voltar ao topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </button>
 </body>
 </html>
+
