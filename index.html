@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Site profissional do advogado Wanderson Morais." />
   <title>Wanderson Morais - Advocacia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html {
@@ -43,7 +41,6 @@
       white-space: nowrap;
       font-family: 'Merriweather', serif;
     }
-
     nav {
       display: flex;
       justify-content: flex-end;
@@ -66,9 +63,8 @@
 
     .hero {
       background-color: #F9FAFC;
-      padding: 50px 0 50px 0;
+      padding: 50px 0;
     }
-
     .hero-container {
       display: flex;
       flex-wrap: wrap;
@@ -79,37 +75,29 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .hero-image {
       flex: 0 0 auto;
       max-width: 200px;
       width: 200px;
       border-radius: 8px;
       object-fit: cover;
-      height: auto;
-      margin-left: 0;
     }
-
     .hero-text {
       flex: 1 1 450px;
       max-width: 450px;
       font-family: 'Merriweather', serif;
-      color: #12224E;
     }
-
     .hero-text h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
       font-weight: 700;
       line-height: 1.2;
     }
-
     .hero-text p {
       font-size: 1.15rem;
       margin-bottom: 20px;
       color: #3a4a75;
     }
-
     .cta-button {
       background-color: #12224E;
       color: white;
@@ -119,10 +107,8 @@
       font-weight: 700;
       cursor: pointer;
       display: inline-block;
-      font-family: 'Roboto', sans-serif;
       transition: background-color 0.3s ease;
     }
-
     .cta-button:hover,
     .cta-button:focus {
       background-color: #0b1740;
@@ -130,48 +116,40 @@
     }
 
     .contact-card {
-      background-color: #12224E;
+      background: linear-gradient(135deg, #0b1740, #1a2a6c);
       color: white;
       padding: 20px 25px;
       border-radius: 12px;
-      font-size: 0.95rem;
       max-width: 250px;
       font-family: 'Roboto', sans-serif;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 12px;
-      flex: 0 0 auto;
+      gap: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .contact-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      color: #ffffff;
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
-    .contact-button {
-      display: inline-block;
-      background-color: #0b1740; /* azul escuro */
+    .contact-card a.button {
+      background-color: #0b1740;
       color: white;
-      text-align: center;
-      padding: 10px 18px;
-      margin-bottom: 10px;
+      padding: 10px 15px;
       border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      text-align: center;
       transition: background-color 0.3s ease;
-      width: 100%;
-      box-sizing: border-box;
-      text-decoration: none;
     }
 
-    .contact-button:hover,
-    .contact-button:focus {
-      background-color: #071028;
-      outline: none;
+    .contact-card a.button:hover {
+      background-color: #20347d;
+    }
+
+    .email-button {
+      display: none;
     }
 
     section {
@@ -179,7 +157,6 @@
       max-width: 1200px;
       margin: 0 auto;
       color: #12224E;
-      font-family: 'Roboto', sans-serif;
     }
 
     h2 {
@@ -200,9 +177,6 @@
       background-color: #F3F6F9;
       padding: 20px;
       border-radius: 8px;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #12224E;
     }
 
     form input,
@@ -212,19 +186,6 @@
       margin-bottom: 15px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 1rem;
-      font-family: 'Roboto', sans-serif;
-      transition: border-color 0.3s ease;
-    }
-
-    form input:focus,
-    form textarea:focus {
-      border-color: #12224E;
-      outline: none;
-    }
-
-    form textarea {
-      resize: vertical;
     }
 
     form button {
@@ -237,13 +198,10 @@
       cursor: pointer;
       font-size: 1rem;
       transition: background-color 0.3s ease;
-      font-family: 'Roboto', sans-serif;
     }
 
-    form button:hover,
-    form button:focus {
+    form button:hover {
       background-color: #0b1740;
-      outline: none;
     }
 
     footer {
@@ -252,9 +210,6 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 40px;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      font-family: 'Roboto', sans-serif;
     }
 
     .back-to-top {
@@ -268,7 +223,6 @@
       font-weight: bold;
       font-size: 0.9rem;
       cursor: pointer;
-      text-align: center;
       z-index: 1000;
       transition: background-color 0.3s ease;
     }
@@ -277,70 +231,59 @@
       background-color: #0b1740;
     }
 
-    /* MOBILE */
     @media (max-width: 900px) {
       header {
-        padding: 15px 20px;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+        padding: 15px 20px;
       }
-
       nav {
+        width: 100%;
         justify-content: center;
         gap: 10px;
         margin-top: 10px;
-        width: 100%;
       }
-
       .hero-container {
         flex-direction: column;
         align-items: center;
         padding: 0 20px;
       }
-
       .hero-image {
         max-width: 180px;
         width: 180px;
-        margin-left: auto;
-        margin-right: auto;
       }
-
       .hero-text {
         text-align: center;
         max-width: 100%;
         order: 2;
       }
-
       .contact-card {
         order: 3;
         max-width: 100%;
         width: 100%;
         margin-top: 20px;
       }
+      .email-button {
+        display: block;
+      }
     }
 
-    /* DESKTOP */
     @media (min-width: 901px) {
       .hero-container {
         flex-direction: row;
         justify-content: flex-start;
         padding: 0 40px;
       }
-
       .hero-image {
         order: 1;
-        margin-left: 0;
       }
-
       .hero-text {
         order: 2;
-        max-width: 450px;
         margin-left: 40px;
         margin-right: 40px;
         text-align: left;
       }
-
       .contact-card {
         order: 3;
         margin-left: auto;
@@ -352,15 +295,12 @@
       .hero-text h1 {
         font-size: 1.5rem;
       }
-
       .hero-text p {
         font-size: 1rem;
       }
-
       h2 {
         font-size: 1.5rem;
       }
-
       section {
         padding: 30px 15px;
       }
@@ -387,59 +327,57 @@
         <a href="#contato" class="cta-button">Agende uma consulta</a>
       </div>
       <div class="contact-card">
-        <h3>Entre em Contato</h3>
-        <a href="https://wa.me/556294992706" target="_blank" class="contact-button" aria-label="WhatsApp">
-          WhatsApp
-        </a>
-        <a href="https://instagram.com/wanderson_morais.adv" target="_blank" class="contact-button" aria-label="Instagram">
-          Instagram
-        </a>
-        <a href="mailto:wandersonmoraisadv@outlook.com" class="contact-button" aria-label="Email">
-          Email
-        </a>
+        <a class="button" href="https://wa.me/556294992706" target="_blank">WhatsApp</a>
+        <a class="button" href="https://instagram.com/wanderson_morais.adv" target="_blank">Instagram</a>
+        <a class="button email-button" href="mailto:wandersonmoraisadv@outlook.com">E-mail</a>
       </div>
     </div>
   </section>
 
   <section id="sobre">
-    <h2>Sobre Wanderson Morais</h2>
-    <p>Advogado com ampla experiência em Direito Civil, Trabalhista e Empresarial. Apaixonado por soluções jurídicas que promovam a segurança e o crescimento dos clientes.</p>
+    <h2>Sobre o Advogado</h2>
+    <p>
+      Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.
+    </p>
   </section>
 
   <section id="atuacao">
     <h2>Áreas de Atuação</h2>
     <div class="areas">
-      <div class="area">Direito Civil</div>
-      <div class="area">Direito Trabalhista</div>
-      <div class="area">Direito Empresarial</div>
-      <div class="area">Direito de Família</div>
-      <div class="area">Direito Penal</div>
-      <div class="area">Direito Imobiliário</div>
+      <div class="area"><strong>Direito Civil</strong><br />Contratos, responsabilidade civil, indenizações.</div>
+      <div class="area"><strong>Família e Sucessões</strong><br />Divórcios, guarda, heranças, pensão alimentícia.</div>
+      <div class="area"><strong>Direito do Consumidor</strong><br />Defesa do consumidor e litígios com empresas.</div>
+      <div class="area"><strong>Direito Trabalhista</strong><br />Reclamações, rescisões e direitos trabalhistas.</div>
+      <div class="area"><strong>Direito Empresarial</strong><br />Assessoria jurídica para empresas e contratos.</div>
     </div>
   </section>
 
   <section id="blog">
-    <h2>Blog</h2>
-    <p>Em breve, conteúdos jurídicos, notícias e análises relevantes para você.</p>
+    <h2>Blog Jurídico</h2>
+    <p>
+      Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.
+    </p>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <form action="mailto:wandersonmoraisadv@outlook.com" method="POST" enctype="text/plain">
+    <p>
+      Telefone/WhatsApp: +55 62 9267-0344<br />
+      Email: wandersonmoraisadv@outlook.com
+    </p>
+    <form action="mailto:wandersonmoraisadv@outlook.com" method="post" enctype="text/plain">
       <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
+      <input type="email" name="email" placeholder="Seu email" required />
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Wanderson Morais - Todos os direitos reservados.
+    <p>© 2025 Wanderson Morais Advocacia. Todos os direitos reservados.</p>
+    <p>116 Rua João de Abreu, Goiânia, Goiás</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Voltar ao topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    ↑
-  </button>
+  <a href="#inicio" class="back-to-top">↑ Início</a>
 </body>
 </html>
-
