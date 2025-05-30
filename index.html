@@ -2,15 +2,31 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Site profissional do advogado Wanderson Morais." />
   <title>Wanderson Morais - Advocacia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background-color: #ffffff; color: #1A237E; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #1A237E;
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     header {
       background-color: #1A237E;
@@ -19,35 +35,59 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
-
-    .logo-container {
+    .logo-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 5px;
+      width: 70px;
+      height: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .logo-card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .header-left {
       display: flex;
       align-items: center;
+      flex: 1 1 auto;
+      min-width: 180px;
+    }
+    .header-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-left: 10px;
+      white-space: nowrap;
     }
 
-    .logo-container img {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-      margin-right: 10px;
+    nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: flex-end;
+      min-width: 180px;
+      flex-wrap: wrap;
+      gap: 15px;
     }
-
-    .logo-container span {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
     nav a {
       color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
-
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover,
+    nav a:focus {
+      background-color: #0d153d;
+      outline: none;
     }
 
     .hero {
@@ -56,50 +96,55 @@
       align-items: center;
       padding: 60px 40px;
       background-color: #E3F2FD;
+      gap: 20px;
     }
-
     .hero-text {
-      max-width: 60%;
+      max-width: 55%;
     }
-
     .hero-text h1 {
-      font-size: 36px;
+      font-size: 2.25rem;
       margin-bottom: 20px;
     }
-
     .hero-text p {
-      font-size: 18px;
+      font-size: 1.125rem;
       margin-bottom: 30px;
     }
-
     .cta-button {
       background-color: #1A237E;
       color: white;
       padding: 15px 25px;
       border: none;
       border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
-
-    .cta-button:hover {
+    .cta-button:hover,
+    .cta-button:focus {
       background-color: #0d153d;
+      outline: none;
     }
-
     .hero img {
       width: 35%;
       border-radius: 8px;
       object-fit: cover;
       margin-left: 3mm;
+      min-width: 200px;
+      max-width: 400px;
+      height: auto;
     }
 
     section {
       padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
     h2 {
       margin-bottom: 20px;
       color: #0d153d;
+      font-weight: 700;
+      font-size: 1.75rem;
     }
 
     .areas {
@@ -107,32 +152,42 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-
     .area {
       background-color: #F3F6F9;
       padding: 20px;
       border-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
     }
-
+    form textarea {
+      resize: vertical;
+    }
     form button {
       background-color: #1A237E;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
       border-radius: 5px;
-      font-weight: bold;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
     }
-
-    form button:hover {
+    form button:hover,
+    form button:focus {
       background-color: #0d153d;
+      outline: none;
     }
 
     footer {
@@ -141,19 +196,97 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 40px;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
-    footer p {
-      margin: 5px 0;
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 1.75rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+      .hero img {
+        width: 70%;
+        margin-left: 0;
+        margin-top: 20px;
+        min-width: auto;
+        max-width: 300px;
+      }
+      nav {
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+      section {
+        padding: 40px 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .area {
+        font-size: 0.95rem;
+      }
+      form input,
+      form textarea,
+      form button {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .header-left {
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-around;
+      }
+      .hero img {
+        width: 90%;
+        max-width: none;
+      }
+      .hero-text h1 {
+        font-size: 1.4rem;
+      }
+      .hero-text p {
+        font-size: 0.95rem;
+      }
+      section {
+        padding: 30px 15px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo-container">
-      <img src="logo-wanderson.png" alt="Logo do Escritório">
-      <span>Wanderson Morais - Advocacia</span>
+    <div class="header-left">
+      <div class="logo-card">
+        <!-- Espaço para logo Wanderson Morais -->
+        <!-- Para adicionar a logo, coloque aqui a imagem com src correto -->
+        <!-- Exemplo: <img src="logo.png" alt="Logo Wanderson Morais" /> -->
+      </div>
+      <div class="header-title">Wanderson Morais - Advocacia</div>
     </div>
     <nav>
       <a href="#sobre">Sobre</a>
@@ -164,7 +297,7 @@
   </header>
 
   <section class="hero">
-    <img src="wanderson-morais.jpg" alt="Foto do Advogado Wanderson Morais">
+    <img src="wanderson-morais.jpg" alt="Foto do Advogado Wanderson Morais" />
     <div class="hero-text">
       <h1>Compromisso com a justiça e excelência jurídica</h1>
       <p>Atendimento especializado nas principais áreas do Direito. Ética, responsabilidade e transparência.</p>
@@ -174,43 +307,62 @@
 
   <section id="sobre">
     <h2>Sobre o Advogado</h2>
-    <p>Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.</p>
+    <p>
+      Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.
+    </p>
   </section>
 
   <section id="atuacao">
     <h2>Áreas de Atuação</h2>
     <div class="areas">
-      <div class="area"><strong>Direito Civil</strong><br />Contratos, responsabilidade civil, indenizações.</div>
-      <div class="area"><strong>Família e Sucessões</strong><br />Divórcios, guarda, heranças, pensão alimentícia.</div>
-      <div class="area"><strong>Direito do Consumidor</strong><br />Defesa do consumidor e litígios com empresas.</div>
-      <div class="area"><strong>Direito Trabalhista</strong><br />Reclamações, rescisões e direitos trabalhistas.</div>
-      <div class="area"><strong>Direito Empresarial</strong><br />Assessoria jurídica para empresas e contratos.</div>
+      <div class="area">
+        <strong>Direito Civil</strong><br />
+        Contratos, responsabilidade civil, indenizações.
+      </div>
+      <div class="area">
+        <strong>Família e Sucessões</strong><br />
+        Divórcios, guarda, heranças, pensão alimentícia.
+      </div>
+      <div class="area">
+        <strong>Direito do Consumidor</strong><br />
+        Defesa do consumidor e litígios com empresas.
+      </div>
+      <div class="area">
+        <strong>Direito Trabalhista</strong><br />
+        Reclamações, rescisões e direitos trabalhistas.
+      </div>
+      <div class="area">
+        <strong>Direito Empresarial</strong><br />
+        Assessoria jurídica para empresas e contratos.
+      </div>
     </div>
   </section>
 
   <section id="blog">
     <h2>Blog Jurídico</h2>
-    <p>Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.</p>
+    <p>
+      Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.
+    </p>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>Telefone: +55 62 9267-0344<br />Email: wandersonmoraisadv@outlook.com</p>
-    <form>
-      <input type="text" placeholder="Seu nome" required />
-      <input type="email" placeholder="Seu e-mail" required />
-      <textarea rows="5" placeholder="Mensagem"></textarea>
-      <button type="submit">Enviar</button>
+    <p>
+      Telefone/WhatsApp: +55 62 9267-0344<br />
+      Email: wandersonmoraisadv@outlook.com
+    </p>
+    <form action="mailto:wandersonmoraisadv@outlook.com" method="post" enctype="text/plain" >
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu email" required />
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Wanderson Morais - Todos os direitos reservados.</p>
+    <p>© 2025 Wanderson Morais Advocacia. Todos os direitos reservados.</p>
     <p>116 Rua João de Abreu, Goiânia, Goiás</p>
-    <p>Política de Privacidade | Termos de Uso</p>
   </footer>
-
 </body>
 </html>
-
 
