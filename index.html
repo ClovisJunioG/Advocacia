@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Site profissional do advogado Wanderson Morais." />
   <title>Wanderson Morais - Advocacia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html {
@@ -41,6 +43,7 @@
       white-space: nowrap;
       font-family: 'Merriweather', serif;
     }
+
     nav {
       display: flex;
       justify-content: flex-end;
@@ -65,6 +68,7 @@
       background-color: #F9FAFC;
       padding: 50px 0;
     }
+
     .hero-container {
       display: flex;
       flex-wrap: wrap;
@@ -75,29 +79,36 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+
     .hero-image {
       flex: 0 0 auto;
       max-width: 200px;
       width: 200px;
       border-radius: 8px;
       object-fit: cover;
+      height: auto;
     }
+
     .hero-text {
       flex: 1 1 450px;
       max-width: 450px;
       font-family: 'Merriweather', serif;
+      color: #12224E;
     }
+
     .hero-text h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
       font-weight: 700;
       line-height: 1.2;
     }
+
     .hero-text p {
       font-size: 1.15rem;
       margin-bottom: 20px;
       color: #3a4a75;
     }
+
     .cta-button {
       background-color: #12224E;
       color: white;
@@ -109,6 +120,7 @@
       display: inline-block;
       transition: background-color 0.3s ease;
     }
+
     .cta-button:hover,
     .cta-button:focus {
       background-color: #0b1740;
@@ -116,39 +128,42 @@
     }
 
     .contact-card {
-      background: linear-gradient(135deg, #0b1740, #1a2a6c);
+      background: linear-gradient(145deg, #12224E, #1f3470);
       color: white;
       padding: 20px 25px;
       border-radius: 12px;
+      font-size: 0.95rem;
       max-width: 250px;
-      font-family: 'Roboto', sans-serif;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      justify-content: center;
+      gap: 12px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .contact-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .contact-card a.button {
+    .contact-button {
       background-color: #0b1740;
       color: white;
-      padding: 10px 15px;
+      border: none;
+      padding: 12px;
       border-radius: 6px;
-      font-weight: 600;
+      font-weight: bold;
+      cursor: pointer;
       text-align: center;
       transition: background-color 0.3s ease;
     }
 
-    .contact-card a.button:hover {
-      background-color: #20347d;
+    .contact-button:hover {
+      background-color: #233973;
     }
 
-    .email-button {
+    .email-only {
       display: none;
     }
 
@@ -156,7 +171,6 @@
       padding: 60px 40px;
       max-width: 1200px;
       margin: 0 auto;
-      color: #12224E;
     }
 
     h2 {
@@ -177,6 +191,7 @@
       background-color: #F3F6F9;
       padding: 20px;
       border-radius: 8px;
+      font-size: 1rem;
     }
 
     form input,
@@ -188,6 +203,10 @@
       border: 1px solid #ccc;
     }
 
+    form textarea {
+      resize: vertical;
+    }
+
     form button {
       background-color: #12224E;
       color: white;
@@ -197,7 +216,6 @@
       font-weight: 700;
       cursor: pointer;
       font-size: 1rem;
-      transition: background-color 0.3s ease;
     }
 
     form button:hover {
@@ -210,6 +228,7 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 40px;
+      font-size: 0.9rem;
     }
 
     .back-to-top {
@@ -223,71 +242,69 @@
       font-weight: bold;
       font-size: 0.9rem;
       cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
       z-index: 1000;
-      transition: background-color 0.3s ease;
     }
 
-    .back-to-top:hover {
-      background-color: #0b1740;
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
     }
 
+    /* MOBILE */
     @media (max-width: 900px) {
       header {
+        padding: 15px 20px;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        padding: 15px 20px;
       }
+
       nav {
-        width: 100%;
         justify-content: center;
         gap: 10px;
         margin-top: 10px;
+        width: 100%;
       }
+
       .hero-container {
         flex-direction: column;
         align-items: center;
         padding: 0 20px;
       }
+
       .hero-image {
-        max-width: 180px;
-        width: 180px;
+        max-width: 160px;
+        margin: auto;
       }
+
       .hero-text {
         text-align: center;
         max-width: 100%;
-        order: 2;
       }
+
       .contact-card {
-        order: 3;
         max-width: 100%;
-        width: 100%;
+        padding: 15px;
+        gap: 8px;
         margin-top: 20px;
       }
-      .email-button {
+
+      .contact-button {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+
+      .email-only {
         display: block;
       }
     }
 
     @media (min-width: 901px) {
-      .hero-container {
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 0 40px;
-      }
-      .hero-image {
-        order: 1;
-      }
-      .hero-text {
-        order: 2;
-        margin-left: 40px;
-        margin-right: 40px;
-        text-align: left;
-      }
-      .contact-card {
-        order: 3;
-        margin-left: auto;
-        margin-right: 0;
+      .email-only {
+        display: none;
       }
     }
 
@@ -295,12 +312,15 @@
       .hero-text h1 {
         font-size: 1.5rem;
       }
+
       .hero-text p {
         font-size: 1rem;
       }
+
       h2 {
         font-size: 1.5rem;
       }
+
       section {
         padding: 30px 15px;
       }
@@ -327,18 +347,16 @@
         <a href="#contato" class="cta-button">Agende uma consulta</a>
       </div>
       <div class="contact-card">
-        <a class="button" href="https://wa.me/556294992706" target="_blank">WhatsApp</a>
-        <a class="button" href="https://instagram.com/wanderson_morais.adv" target="_blank">Instagram</a>
-        <a class="button email-button" href="mailto:wandersonmoraisadv@outlook.com">E-mail</a>
+        <button class="contact-button" onclick="window.open('https://wa.me/556294992706','_blank')">WhatsApp</button>
+        <button class="contact-button" onclick="window.open('https://instagram.com/wanderson_morais.adv','_blank')">Instagram</button>
+        <button class="contact-button email-only" onclick="window.open('mailto:wandersonmoraisadv@outlook.com')">E-mail</button>
       </div>
     </div>
   </section>
 
   <section id="sobre">
     <h2>Sobre o Advogado</h2>
-    <p>
-      Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.
-    </p>
+    <p>Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.</p>
   </section>
 
   <section id="atuacao">
@@ -354,9 +372,7 @@
 
   <section id="blog">
     <h2>Blog Jurídico</h2>
-    <p>
-      Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.
-    </p>
+    <p>Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.</p>
   </section>
 
   <section id="contato">
@@ -378,6 +394,18 @@
     <p>116 Rua João de Abreu, Goiânia, Goiás</p>
   </footer>
 
-  <a href="#inicio" class="back-to-top">↑ Início</a>
+  <a href="#inicio" class="back-to-top" id="backToTop">↑ Início</a>
+
+  <script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
+
