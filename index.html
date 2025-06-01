@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oHjZ3Qq3L0gDgi5eHVvlGr6NDN8zR3mLMf8LvcX5XlryPAnpR3TfY48XvCexpsBiwUqzXc+N9qjR8cT2FZxR4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -67,20 +68,23 @@
       outline: none;
     }
     .toggle-darkmode {
-      background-color: #f0f0f0;
-      color: #12224E;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
+      background-color: transparent;
       border: none;
-      margin-left: 20px;
-      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 5px;
     }
-    body.dark-mode .toggle-darkmode {
-      background-color: #333;
-      color: #fff;
+    .toggle-darkmode svg {
+      width: 22px;
+      height: 22px;
+      fill: white;
+      transition: transform 0.3s ease, fill 0.3s ease;
     }
+    body.dark-mode .toggle-darkmode svg {
+      transform: rotate(180deg);
+      fill: #f0f0f0;
+    }
+
     .hero {
       background-color: #F9FAFC;
       padding: 50px 0;
@@ -141,39 +145,38 @@
       background-color: #0b1740;
       outline: none;
     }
+
     .contact-card {
-      background: linear-gradient(145deg, #12224E, #1f3470);
-      color: white;
-      padding: 20px 25px;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      max-width: 250px;
-      font-family: 'Roboto', sans-serif;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: transform 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
+      gap: 10px;
     }
     .contact-button {
-      background-color: #0b1740;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #ffffff;
+      color: #12224E;
+      border: 2px solid #12224E;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
     .contact-button:hover {
-      background-color: #233973;
+      background-color: #12224E;
+      color: white;
+    }
+    .contact-button i {
+      font-size: 1.2rem;
     }
     .email-only {
       display: none;
     }
+
     section {
       padding: 60px 40px;
       max-width: 1200px;
@@ -319,7 +322,9 @@
       <a href="#atuacao">Áreas</a>
       <a href="#blog">Blog</a>
       <a href="#contato">Contato</a>
-      <button class="toggle-darkmode" onclick="toggleDarkMode()" id="darkModeBtn">🌙</button>
+      <button class="toggle-darkmode" onclick="toggleDarkMode()" id="darkModeBtn" aria-label="Alternar modo escuro">
+        <svg id="darkModeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13A9 9 0 0110 2.36 9 9 0 1021.64 13z"/></svg>
+      </button>
     </nav>
   </header>
 
@@ -332,9 +337,9 @@
         <a href="#contato" class="cta-button">Agende uma consulta</a>
       </div>
       <div class="contact-card">
-        <button class="contact-button" onclick="window.open('https://wa.me/556294992706','_blank')">WhatsApp</button>
-        <button class="contact-button" onclick="window.open('https://instagram.com/wanderson_morais.adv','_blank')">Instagram</button>
-        <button class="contact-button email-only" onclick="window.open('mailto:wandersonmoraisadv@outlook.com')">E-mail</button>
+        <button class="contact-button" onclick="window.open('https://wa.me/556294992706','_blank')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+        <button class="contact-button" onclick="window.open('https://instagram.com/wanderson_morais.adv','_blank')"><i class="fab fa-instagram"></i> Instagram</button>
+        <button class="contact-button email-only" onclick="window.open('mailto:wandersonmoraisadv@outlook.com')"><i class="fas fa-envelope"></i> E-mail</button>
       </div>
     </div>
   </section>
@@ -383,18 +388,13 @@
 
   <script>
     const backToTop = document.getElementById('backToTop');
-    const darkModeBtn = document.getElementById('darkModeBtn');
-
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('show', window.scrollY > 200);
     });
 
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      darkModeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     }
   </script>
 </body>
 </html>
-
-
