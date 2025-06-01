@@ -10,14 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oHjZ3Qq3L0gDgi5eHVvlGr6NDN8zR3mLMf8LvcX5XlryPAnpR3TfY48XvCexpsBiwUqzXc+N9qjR8cT2FZxR4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #ffffff;
@@ -29,10 +23,8 @@
       background-color: #121212;
       color: #f0f0f0;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
+
     header {
       background-color: #12224E;
       color: white;
@@ -145,9 +137,10 @@
     body.dark-mode h2 {
       color: #ddd;
     }
+
     .areas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
     .area {
@@ -155,10 +148,35 @@
       padding: 20px;
       border-radius: 8px;
       color: #12224E;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      outline-offset: 3px;
+      position: relative;
+    }
+    .area:hover,
+    .area:focus {
+      background-color: #dce4f7;
+      outline: 2px solid #12224E;
     }
     body.dark-mode .area {
       background-color: #2c2c2c;
       color: #f0f0f0;
+    }
+    body.dark-mode .area:hover,
+    body.dark-mode .area:focus {
+      background-color: #3a3a3a;
+      outline-color: #f0f0f0;
+    }
+    .area-desc {
+      margin-top: 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #374151;
+      display: none;
+    }
+    body.dark-mode .area-desc {
+      color: #bbb;
     }
 
     footer {
@@ -190,6 +208,7 @@
       opacity: 1;
       pointer-events: auto;
     }
+
     @media (max-width: 900px) {
       header {
         padding: 15px 20px;
@@ -241,8 +260,8 @@
       <a href="#sobre">Sobre</a>
       <a href="#atuacao">Áreas</a>
       <a href="#blog">Blog</a>
-      <button class="toggle-darkmode" onclick="toggleDarkMode()" id="darkModeBtn" aria-label="Alternar modo escuro">
-        <svg id="darkModeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13A9 9 0 0110 2.36 9 9 0 1021.64 13z"/></svg>
+      <button class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Alternar modo escuro">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13A9 9 0 0110 2.36 9 9 0 1021.64 13z"/></svg>
       </button>
     </nav>
   </header>
@@ -264,37 +283,84 @@
 
   <section id="atuacao">
     <h2>Áreas de Atuação</h2>
-    <div class="areas">
-      <div class="area"><strong>Direito Civil</strong><br />Contratos, responsabilidade civil, indenizações.</div>
-      <div class="area"><strong>Família e Sucessões</strong><br />Divórcios, guarda, heranças, pensão alimentícia.</div>
-      <div class="area"><strong>Direito do Consumidor</strong><br />Defesa do consumidor e litígios com empresas.</div>
-      <div class="area"><strong>Direito Trabalhista</strong><br />Reclamações, rescisões e direitos trabalhistas.</div>
-      <div class="area"><strong>Direito Empresarial</strong><br />Assessoria jurídica para empresas e contratos.</div>
+    <div class="areas" role="list">
+      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-civil" id="civil">
+        <strong>Direito Civil</strong>
+        <div class="area-desc" id="desc-civil" aria-hidden="true">
+          Atua em contratos, responsabilidade civil, direito das obrigações, indenizações e direitos do consumidor.
+        </div>
+      </div>
+      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-familia" id="familia">
+        <strong>Direito de Família</strong>
+        <div class="area-desc" id="desc-familia" aria-hidden="true">
+          Especializado em divórcios, guarda de filhos, pensão alimentícia, inventários e planejamento sucessório.
+        </div>
+      </div>
+      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-trabalhista" id="trabalhista">
+        <strong>Direito Trabalhista</strong>
+        <div class="area-desc" id="desc-trabalhista" aria-hidden="true">
+          Assessoria em ações trabalhistas, direitos do empregado e do empregador, negociações e acordos.
+        </div>
+      </div>
+      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-empresarial" id="empresarial">
+        <strong>Direito Empresarial</strong>
+        <div class="area-desc" id="desc-empresarial" aria-hidden="true">
+          Consultoria e contencioso empresarial, contratos comerciais, recuperação judicial e compliance.
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="blog">
-    <h2>Blog Jurídico</h2>
-    <p>Em breve: artigos e informações sobre seus direitos, atualizações legislativas e orientações jurídicas práticas.</p>
+    <h2>Blog</h2>
+    <p>Confira nossos artigos mais recentes sobre Direito, legislação e dicas jurídicas.</p>
   </section>
 
   <footer>
-    <p>© 2025 Wanderson Morais Advocacia. Todos os direitos reservados.</p>
-    <p>116 Rua João de Abreu, Goiânia, Goiás</p>
+    <p>© 2025 Wanderson Morais - Todos os direitos reservados.</p>
   </footer>
 
-  <a href="#inicio" class="back-to-top" id="backToTop">&#8593; Início</a>
+  <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">↑</button>
 
   <script>
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('show', window.scrollY > 200);
-    });
-
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+    }
+    (function() {
+      if(localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('show', window.scrollY > 300);
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.area').forEach(area => {
+        area.addEventListener('click', () => toggleArea(area));
+        area.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleArea(area);
+          }
+        });
+      });
+    });
+
+    function toggleArea(element) {
+      const descId = element.getAttribute('aria-controls');
+      const desc = document.getElementById(descId);
+      const isExpanded = element.getAttribute('aria-expanded') === 'true';
+      element.setAttribute('aria-expanded', !isExpanded);
+      desc.style.display = isExpanded ? 'none' : 'block';
+      desc.setAttribute('aria-hidden', isExpanded);
     }
   </script>
 </body>
 </html>
-
