@@ -18,6 +18,32 @@
       color: #12224E;
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h2 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-family: 'Merriweather', serif;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
     }
     body.dark-mode {
       background-color: #121212;
@@ -239,58 +265,72 @@
       pointer-events: auto;
     }
 
-    .social-card {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #12224E;
-      border-radius: 14px;
-      padding: 8px 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      opacity: 0;
-      visibility: hidden;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-      z-index: 999;
-      font-weight: 700;
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.9rem;
-      user-select: none;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      max-width: 220px;
-    }
-    .social-card.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    .social-title {
-      margin-bottom: 8px;
-      color: #F7F7F7;
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #f7f7f7;
-      cursor: pointer;
-      border-radius: 6px;
-      padding: 6px 10px;
-      transition: background-color 0.3s ease;
-    }
-    .social-link:hover,
-    .social-link:focus {
-      background-color: #0a1638;
-      outline: none;
-    }
-    .social-link i {
-      font-size: 18px;
-      width: 22px;
-      text-align: center;
-    }
+  .social-card {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #12224E;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  z-index: 999;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  user-select: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  max-width: 220px;
+  text-align: center;
+}
+.social-card.show {
+  opacity: 1;
+  visibility: visible;
+}
+.social-title {
+  margin-bottom: 8px;
+  color: #F7F7F7;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #f7f7f7;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: #0a1638;
+  outline: none;
+}
+.social-link i {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: #0a1638;
+  outline: none;
+}
+.social-link i {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+}
 
     @media (max-width: 720px) {
       header {
@@ -404,21 +444,38 @@
     </div>
   </div>
 </section>
-  <footer>
+ <footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>Onde Estou</h3>
+      <p>Rua João de Abreu, nº 116<br>Edifício Euro Working Concept<br>Setor Oeste – Goiânia, GO.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Atendimento</h3>
+      <p>WhatsApp: <a href="https://wa.me/556294992706" target="_blank" rel="noopener noreferrer">(62) 9499-2706</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
     &copy; 2025 Wanderson Morais Advocacia. Todos os direitos reservados.
-  </footer>
+  </div>
+</footer>
+
 
   <button id="btnBackToTop" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" tabindex="0">Topo</button>
 
   <aside id="socialCard" class="social-card" aria-label="Redes sociais">
-    <div class="social-title">Redes Sociais</div>
-    <a href="https://wa.me/5531999999999" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp do Wanderson Morais" tabindex="0">
-      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
-    </a>
-    <a href="https://instagram.com/wandersonmoraisadv" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram do Wanderson Morais" tabindex="0">
-      <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
-    </a>
-  </aside>
+  <div class="social-title">Fale Comigo</div>
+  <a href="https://wa.me/556294992706" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp do Wanderson Morais" tabindex="0">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+  </a>
+  <a href="https://instagram.com/wanderson_morais.adv" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram do Wanderson Morais" tabindex="0">
+  <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+</a>
+
+<a href="https://www.google.com/maps?q=Rua+João+de+Abreu+116+Ed.+Euro+Working+Concept" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Localização no Google Maps" tabindex="0">
+  <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Localização
+</a>
+</aside>
 
   <script>
     const btnToggleDarkMode = document.getElementById('btnToggleDarkMode');
