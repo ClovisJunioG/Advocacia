@@ -80,6 +80,13 @@
     .hero {
       background-color: #F9FAFC;
       padding: 50px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     body.dark-mode .hero {
       background-color: #1e1e1e;
@@ -126,6 +133,13 @@
       padding: 60px 40px;
       max-width: 1200px;
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     h2 {
       margin-bottom: 20px;
@@ -173,7 +187,14 @@
       font-size: 1rem;
       line-height: 1.4;
       color: #374151;
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+    .area[aria-expanded="true"] .area-desc {
+      max-height: 200px; /* suficiente para o conteúdo */
+      opacity: 1;
     }
     body.dark-mode .area-desc {
       color: #bbb;
@@ -209,6 +230,62 @@
       pointer-events: auto;
     }
 
+    /* Social card vertical - menor e escondido inicialmente */
+    .social-card {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #12224E;
+      border-radius: 14px;
+      padding: 8px 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      z-index: 999;
+      font-weight: 700;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9rem;
+      user-select: none;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      display: flex;
+    }
+    .social-card.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .social-link {
+      color: #B0C4DE;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 28px;
+      background-color: #0b1740;
+      box-shadow: 0 2px 8px rgba(11,23,64,0.5);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      width: 130px;
+      justify-content: flex-start;
+    }
+    .social-link:hover,
+    .social-link:focus {
+      background-color: #274690;
+      color: #e1eaff;
+      outline: none;
+    }
+    .social-link i {
+      font-size: 1.2rem;
+      color: #a9c1ff;
+      transition: color 0.3s ease;
+    }
+    .social-link:hover i,
+    .social-link:focus i {
+      color: #d1dfff;
+    }
+
     @media (max-width: 900px) {
       header {
         padding: 15px 20px;
@@ -237,6 +314,7 @@
         max-width: 100%;
       }
     }
+
     @media (max-width: 480px) {
       .hero-text h1 {
         font-size: 1.5rem;
@@ -250,6 +328,26 @@
       section {
         padding: 30px 15px;
       }
+      .social-card {
+        bottom: 15px;
+        left: 15px;
+        padding: 7px 12px;
+        gap: 8px;
+        font-size: 0.85rem;
+      }
+      .social-link {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+        gap: 5px;
+        width: 110px;
+      }
+      .social-link i {
+        font-size: 1rem;
+      }
+    }
+
+    body.dark-mode .social-card {
+      background-color: #1e1e1e;
     }
   </style>
 </head>
@@ -271,41 +369,35 @@
       <img src="wanderson-morais.jpg" alt="Foto do Advogado Wanderson Morais" class="hero-image" />
       <div class="hero-text">
         <h1>Compromisso com a justiça e excelência jurídica</h1>
-        <p>Atendimento especializado nas principais áreas do Direito. Ética, responsabilidade e transparência.</p>
+        <p>Atuando nas áreas trabalhista e empresarial com dedicação e ética.</p>
       </div>
     </div>
   </section>
 
   <section id="sobre">
-    <h2>Sobre o Advogado</h2>
-    <p>Wanderson Morais é advogado atuante com vasta experiência em Direito Civil, Família, Trabalhista e Empresarial. Preza pela ética, transparência e dedicação total ao cliente.</p>
+    <h2>Sobre</h2>
+    <p>Wanderson Morais é advogado com ampla experiência em direito trabalhista e empresarial. Seu compromisso é garantir a melhor defesa e orientação para seus clientes, sempre com transparência e profissionalismo.</p>
   </section>
 
   <section id="atuacao">
     <h2>Áreas de Atuação</h2>
-    <div class="areas" role="list">
-      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-civil" id="civil">
-        <strong>Direito Civil</strong>
-        <div class="area-desc" id="desc-civil" aria-hidden="true">
-          Atua em contratos, responsabilidade civil, direito das obrigações, indenizações e direitos do consumidor.
+    <div class="areas">
+      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-trabalhista" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
+        Direito Trabalhista
+        <div id="desc-trabalhista" class="area-desc" aria-hidden="true">
+          Assessoria em processos trabalhistas, reclamações, acordos e consultoria para empresas e trabalhadores.
         </div>
       </div>
-      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-familia" id="familia">
-        <strong>Direito de Família</strong>
-        <div class="area-desc" id="desc-familia" aria-hidden="true">
-          Especializado em divórcios, guarda de filhos, pensão alimentícia, inventários e planejamento sucessório.
+      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-empresarial" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
+        Direito Empresarial
+        <div id="desc-empresarial" class="area-desc" aria-hidden="true">
+          Consultoria jurídica para abertura, gestão e resolução de conflitos empresariais, contratos e negociações comerciais.
         </div>
       </div>
-      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-trabalhista" id="trabalhista">
-        <strong>Direito Trabalhista</strong>
-        <div class="area-desc" id="desc-trabalhista" aria-hidden="true">
-          Assessoria em ações trabalhistas, direitos do empregado e do empregador, negociações e acordos.
-        </div>
-      </div>
-      <div class="area" tabindex="0" role="listitem" aria-expanded="false" aria-controls="desc-empresarial" id="empresarial">
-        <strong>Direito Empresarial</strong>
-        <div class="area-desc" id="desc-empresarial" aria-hidden="true">
-          Consultoria e contencioso empresarial, contratos comerciais, recuperação judicial e compliance.
+      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-consumer" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
+        Direito do Consumidor
+        <div id="desc-consumer" class="area-desc" aria-hidden="true">
+          Defesa dos direitos do consumidor em casos de compras, contratos, cobranças indevidas e relações de consumo em geral.
         </div>
       </div>
     </div>
@@ -313,53 +405,101 @@
 
   <section id="blog">
     <h2>Blog</h2>
-    <p>Confira nossos artigos mais recentes sobre Direito, legislação e dicas jurídicas.</p>
+    <p>Fique atento às novidades e análises jurídicas para se manter bem informado.</p>
   </section>
 
+  <div class="back-to-top" id="btnBackToTop" role="button" aria-label="Voltar ao topo" tabindex="0">↑ Topo</div>
+
+  <div class="social-card" id="socialCard" aria-label="Redes sociais">
+    <a href="https://wa.me/5583984112763" target="_blank" class="social-link" rel="noopener" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="https://instagram.com/wandersonmoraisadv" target="_blank" class="social-link" rel="noopener" aria-label="Instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </div>
+
   <footer>
-    <p>© 2025 Wanderson Morais - Todos os direitos reservados.</p>
+    &copy; 2025 Wanderson Morais - Todos os direitos reservados.
   </footer>
 
-  <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">↑</button>
-
   <script>
+    // Toggle dark mode and save preference
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+      if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'true');
+      } else {
+        localStorage.removeItem('darkMode');
+      }
     }
-    (function() {
-      if(localStorage.getItem('darkMode') === 'enabled') {
+
+    // Load dark mode preference on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
       }
-    })();
+      // Show hero and sections with animation on load/scroll
+      observeVisibility();
 
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    window.addEventListener('scroll', () => {
-      backToTopBtn.classList.toggle('show', window.scrollY > 300);
-    });
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.area').forEach(area => {
-        area.addEventListener('click', () => toggleArea(area));
-        area.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleArea(area);
-          }
-        });
+      // Show social card and back to top button on scroll
+      window.addEventListener('scroll', handleScroll);
+      document.getElementById('btnBackToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      document.getElementById('btnBackToTop').addEventListener('keypress', e => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
 
+    // Toggle area description open/close
     function toggleArea(element) {
-      const descId = element.getAttribute('aria-controls');
-      const desc = document.getElementById(descId);
-      const isExpanded = element.getAttribute('aria-expanded') === 'true';
-      element.setAttribute('aria-expanded', !isExpanded);
-      desc.style.display = isExpanded ? 'none' : 'block';
-      desc.setAttribute('aria-hidden', isExpanded);
+      const expanded = element.getAttribute('aria-expanded') === 'true';
+      element.setAttribute('aria-expanded', String(!expanded));
+      const desc = element.querySelector('.area-desc');
+      if(!expanded) {
+        desc.setAttribute('aria-hidden', 'false');
+      } else {
+        desc.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    // Intersection Observer to animate sections when they appear
+    function observeVisibility() {
+      const options = {
+        threshold: 0.15
+      };
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      // Observe hero and sections
+      const hero = document.querySelector('.hero');
+      if(hero) observer.observe(hero);
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => observer.observe(section));
+    }
+
+    // Show/hide back to top button and social card on scroll
+    function handleScroll() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const btnBackToTop = document.getElementById('btnBackToTop');
+      const socialCard = document.getElementById('socialCard');
+
+      if(scrollTop > 300) {
+        btnBackToTop.classList.add('show');
+        socialCard.classList.add('show');
+      } else {
+        btnBackToTop.classList.remove('show');
+        socialCard.classList.remove('show');
+      }
     }
   </script>
 </body>
