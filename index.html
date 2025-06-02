@@ -18,6 +18,67 @@
       color: #12224E;
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
+ .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    text-align: left;
+  }
+
+  .footer-column {
+    flex: 1 1 300px;
+    color: #f0f0f0;
+  }
+
+  .footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: 'Merriweather', serif;
+    color: white;
+  }
+
+  .footer-column p,
+  .footer-column a {
+    font-size: 0.95rem;
+    color: #f0f0f0;
+    line-height: 1.5;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 720px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .footer-column {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .footer-column h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .footer-column p {
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      font-size: 0.75rem;
+    }
+  }
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -456,7 +517,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2025 Wanderson Morais Advocacia. Todos os direitos reservados.
+    &copy; 2025 Wanderson Morais Advocacia
   </div>
 </footer>
 
