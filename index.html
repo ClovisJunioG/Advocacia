@@ -21,7 +21,7 @@
     }
     body.dark-mode {
       background-color: #121212;
-      color: #f0f0f0;
+      color: white;
     }
     a { text-decoration: none; color: inherit; }
 
@@ -34,6 +34,15 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .header-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo {
+      max-height: 48px;
+      border-radius: 6px;
+    }
     .header-title {
       font-weight: 700;
       font-size: 1.25rem;
@@ -45,6 +54,7 @@
       justify-content: flex-end;
       flex-wrap: wrap;
       gap: 15px;
+      align-items: center;
     }
     nav a {
       color: white;
@@ -69,12 +79,11 @@
     .toggle-darkmode svg {
       width: 22px;
       height: 22px;
-      fill: white;
-      transition: transform 0.3s ease, fill 0.3s ease;
+      fill: white !important;
+      transition: transform 0.3s ease;
     }
     body.dark-mode .toggle-darkmode svg {
       transform: rotate(180deg);
-      fill: #f0f0f0;
     }
 
     .hero {
@@ -193,7 +202,7 @@
       opacity: 0;
     }
     .area[aria-expanded="true"] .area-desc {
-      max-height: 200px; /* suficiente para o conteúdo */
+      max-height: 200px;
       opacity: 1;
     }
     body.dark-mode .area-desc {
@@ -230,7 +239,6 @@
       pointer-events: auto;
     }
 
-    /* Social card vertical - menor e escondido inicialmente */
     .social-card {
       position: fixed;
       bottom: 20px;
@@ -249,258 +257,227 @@
       font-family: 'Roboto', sans-serif;
       font-size: 0.9rem;
       user-select: none;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-      display: flex;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      max-width: 220px;
     }
     .social-card.show {
       opacity: 1;
       visibility: visible;
     }
-    .social-link {
-      color: #B0C4DE;
+    .social-title {
+      margin-bottom: 8px;
+      color: #F7F7F7;
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
       font-size: 1rem;
+    }
+    .social-link {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 28px;
-      background-color: #0b1740;
-      box-shadow: 0 2px 8px rgba(11,23,64,0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      width: 130px;
-      justify-content: flex-start;
+      gap: 8px;
+      color: #f7f7f7;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 6px 10px;
+      transition: background-color 0.3s ease;
     }
     .social-link:hover,
     .social-link:focus {
-      background-color: #274690;
-      color: #e1eaff;
+      background-color: #0a1638;
       outline: none;
     }
     .social-link i {
-      font-size: 1.2rem;
-      color: #a9c1ff;
-      transition: color 0.3s ease;
-    }
-    .social-link:hover i,
-    .social-link:focus i {
-      color: #d1dfff;
+      font-size: 18px;
+      width: 22px;
+      text-align: center;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 720px) {
       header {
-        padding: 15px 20px;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
-      nav {
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-        width: 100%;
-      }
       .hero-container {
         flex-direction: column;
         align-items: center;
-        padding: 0 20px;
-        gap: 20px;
-      }
-      .hero-image {
-        max-width: 180px;
-        margin: auto;
+        text-align: center;
       }
       .hero-text {
-        text-align: center;
         max-width: 100%;
       }
-    }
-
-    @media (max-width: 480px) {
-      .hero-text h1 {
-        font-size: 1.5rem;
-      }
-      .hero-text p {
-        font-size: 1rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      section {
-        padding: 30px 15px;
+      nav {
+        justify-content: center;
+        gap: 10px;
       }
       .social-card {
-        bottom: 15px;
-        left: 15px;
-        padding: 7px 12px;
-        gap: 8px;
+        bottom: 70px;
+        left: 10px;
+        max-width: 180px;
         font-size: 0.85rem;
       }
-      .social-link {
-        font-size: 0.9rem;
-        padding: 4px 10px;
-        gap: 5px;
-        width: 110px;
-      }
-      .social-link i {
-        font-size: 1rem;
-      }
-    }
-
-    body.dark-mode .social-card {
-      background-color: #1e1e1e;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-title">Wanderson Morais - Advocacia</div>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#atuacao">Áreas</a>
-      <a href="#blog">Blog</a>
-      <button class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Alternar modo escuro">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13A9 9 0 0110 2.36 9 9 0 1021.64 13z"/></svg>
-      </button>
-    </nav>
+    <div class="header-logo-container">
+      <img src="logo-wanderson.jpg" alt="Logo Wanderson Morais" class="logo" />
+      <div class="header-title">Wanderson Morais</div>
+    </div>
+    <nav aria-label="Menu principal">
+      <a href="#home" tabindex="0">Início</a>
+      <a href="#areas" tabindex="0">Áreas</a>
+      <a href="#sobre" tabindex="0">Sobre</a>
+      <a href="#blog" tabindex="0">Blog</a>
+      <button class="toggle-darkmode" id="btnToggleDarkMode" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro" tabindex="0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 17a7 7 0 009-4.21z"/>
+      </svg>
+    </button>
+  </nav>
   </header>
 
-  <section class="hero" id="inicio">
-    <div class="hero-container">
-      <img src="wanderson-morais.jpg" alt="Foto do Advogado Wanderson Morais" class="hero-image" />
-      <div class="hero-text">
-        <h1>Compromisso com a justiça e excelência jurídica</h1>
-        <p>Atuando nas áreas trabalhista e empresarial com dedicação e ética.</p>
+  <main>
+    <section id="home" class="hero" tabindex="-1" aria-label="Seção de apresentação">
+      <div class="hero-container">
+        <img src="wanderson-morais.jpg" alt="Foto do advogado Wanderson Morais" class="hero-image" />
+        <div class="hero-text">
+          <h1>Wanderson Morais</h1>
+          <p>Advogado especialista em direito trabalhista, empresarial e do consumidor. Atendimento personalizado para você e sua empresa.</p>
+        </div>
+      </div>
+    </section>
+    <section id="sobre" tabindex="-1" aria-labelledby="sobre-title">
+  <h2 id="sobre-title">Sobre</h2>
+  <p>
+    Wanderson Morais é advogado com ampla experiência em direito trabalhista, empresarial e do consumidor. Sua atuação se destaca pela ética, comprometimento com o cliente e atualização constante sobre a legislação brasileira.
+  </p>
+  <p style="margin-top: 10px;">
+    Formado pela Universidade XYZ e com mais de 10 anos de atuação, já auxiliou centenas de pessoas físicas e jurídicas a encontrarem soluções eficazes para seus problemas legais.
+  </p>
+</section>
+    <section id="areas" tabindex="-1" aria-labelledby="areas-title">
+      <h2 id="areas-title">Áreas de Atuação</h2>
+      <div class="areas" role="list">
+        <div class="area" role="listitem" tabindex="0" aria-expanded="false">
+          Direito Trabalhista
+          <div class="area-desc" aria-hidden="true">
+            Representação em questões relacionadas a contratos de trabalho, rescisões, direitos trabalhistas e ações judiciais.
+          </div>
+        </div>
+        <div class="area" role="listitem" tabindex="0" aria-expanded="false">
+          Direito Empresarial
+          <div class="area-desc" aria-hidden="true">
+            Consultoria para empresas, elaboração de contratos, recuperação judicial e defesa dos interesses corporativos.
+          </div>
+        </div>
+        <div class="area" role="listitem" tabindex="0" aria-expanded="false">
+          Direito do Consumidor
+          <div class="area-desc" aria-hidden="true">
+            Atendimento para casos de defesa do consumidor, reclamações, e ações contra práticas abusivas.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<section id="blog" tabindex="-1" aria-labelledby="blog-title">
+  <h2 id="blog-title">Blog</h2>
+  <div class="areas" role="list">
+    <div class="area" role="listitem" tabindex="0">
+      📄 Como agir diante de uma demissão por justa causa?
+      <div class="area-desc" aria-hidden="true">
+        Entenda seus direitos e as obrigações da empresa nesse tipo de desligamento.
       </div>
     </div>
-  </section>
-
-  <section id="sobre">
-    <h2>Sobre</h2>
-    <p>Wanderson Morais é advogado com ampla experiência em direito trabalhista e empresarial. Seu compromisso é garantir a melhor defesa e orientação para seus clientes, sempre com transparência e profissionalismo.</p>
-  </section>
-
-  <section id="atuacao">
-    <h2>Áreas de Atuação</h2>
-    <div class="areas">
-      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-trabalhista" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
-        Direito Trabalhista
-        <div id="desc-trabalhista" class="area-desc" aria-hidden="true">
-          Assessoria em processos trabalhistas, reclamações, acordos e consultoria para empresas e trabalhadores.
-        </div>
-      </div>
-      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-empresarial" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
-        Direito Empresarial
-        <div id="desc-empresarial" class="area-desc" aria-hidden="true">
-          Consultoria jurídica para abertura, gestão e resolução de conflitos empresariais, contratos e negociações comerciais.
-        </div>
-      </div>
-      <div class="area" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-consumer" onclick="toggleArea(this)" onkeypress="if(event.key==='Enter' || event.key===' ') toggleArea(this)">
-        Direito do Consumidor
-        <div id="desc-consumer" class="area-desc" aria-hidden="true">
-          Defesa dos direitos do consumidor em casos de compras, contratos, cobranças indevidas e relações de consumo em geral.
-        </div>
+    <div class="area" role="listitem" tabindex="0">
+      📄 Diferenças entre MEI, EIRELI e LTDA
+      <div class="area-desc" aria-hidden="true">
+        Veja qual modelo societário se encaixa melhor para sua empresa e evite problemas legais.
       </div>
     </div>
-  </section>
-
-  <section id="blog">
-    <h2>Blog</h2>
-    <p>Fique atento às novidades e análises jurídicas para se manter bem informado.</p>
-  </section>
-
-  <div class="back-to-top" id="btnBackToTop" role="button" aria-label="Voltar ao topo" tabindex="0">↑ Topo</div>
-
-  <div class="social-card" id="socialCard" aria-label="Redes sociais">
-    <a href="https://wa.me/5583984112763" target="_blank" class="social-link" rel="noopener" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-    <a href="https://instagram.com/wandersonmoraisadv" target="_blank" class="social-link" rel="noopener" aria-label="Instagram">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
+    <div class="area" role="listitem" tabindex="0">
+      📄 Como o Código de Defesa do Consumidor pode te proteger
+      <div class="area-desc" aria-hidden="true">
+        Casos práticos e dicas para se proteger contra abusos nas relações de consumo.
+      </div>
+    </div>
   </div>
-
+</section>
   <footer>
-    &copy; 2025 Wanderson Morais - Todos os direitos reservados.
+    &copy; 2025 Wanderson Morais Advocacia. Todos os direitos reservados.
   </footer>
 
+  <button id="btnBackToTop" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" tabindex="0">Topo</button>
+
+  <aside id="socialCard" class="social-card" aria-label="Redes sociais">
+    <div class="social-title">Redes Sociais</div>
+    <a href="https://wa.me/5531999999999" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp do Wanderson Morais" tabindex="0">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+    </a>
+    <a href="https://instagram.com/wandersonmoraisadv" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram do Wanderson Morais" tabindex="0">
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+    </a>
+  </aside>
+
   <script>
-    // Toggle dark mode and save preference
-    function toggleDarkMode() {
+    const btnToggleDarkMode = document.getElementById('btnToggleDarkMode');
+    btnToggleDarkMode.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'true');
-      } else {
-        localStorage.removeItem('darkMode');
-      }
-    }
+    });
 
-    // Load dark mode preference on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-      }
-      // Show hero and sections with animation on load/scroll
-      observeVisibility();
-
-      // Show social card and back to top button on scroll
-      window.addEventListener('scroll', handleScroll);
-      document.getElementById('btnBackToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const areas = document.querySelectorAll('.area');
+    areas.forEach(area => {
+      area.addEventListener('click', () => {
+        const expanded = area.getAttribute('aria-expanded') === 'true';
+        area.setAttribute('aria-expanded', !expanded);
       });
-      document.getElementById('btnBackToTop').addEventListener('keypress', e => {
+      area.addEventListener('keydown', e => {
         if(e.key === 'Enter' || e.key === ' ') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          e.preventDefault();
+          const expanded = area.getAttribute('aria-expanded') === 'true';
+          area.setAttribute('aria-expanded', !expanded);
         }
       });
     });
 
-    // Toggle area description open/close
-    function toggleArea(element) {
-      const expanded = element.getAttribute('aria-expanded') === 'true';
-      element.setAttribute('aria-expanded', String(!expanded));
-      const desc = element.querySelector('.area-desc');
-      if(!expanded) {
-        desc.setAttribute('aria-hidden', 'false');
-      } else {
-        desc.setAttribute('aria-hidden', 'true');
-      }
-    }
-
-    // Intersection Observer to animate sections when they appear
     function observeVisibility() {
-      const options = {
-        threshold: 0.15
-      };
-      const observer = new IntersectionObserver((entries, obs) => {
+      const elements = document.querySelectorAll('.hero, section');
+      const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-          if(entry.isIntersecting) {
+          if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
-      }, options);
-
-      // Observe hero and sections
-      const hero = document.querySelector('.hero');
-      if(hero) observer.observe(hero);
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => observer.observe(section));
+      }, { threshold: 0.15 });
+      elements.forEach(el => observer.observe(el));
     }
+    observeVisibility();
 
-    // Show/hide back to top button and social card on scroll
-    function handleScroll() {
+    const btnBackToTop = document.getElementById('btnBackToTop');
+    const socialCard = document.getElementById('socialCard');
+
+    btnBackToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const btnBackToTop = document.getElementById('btnBackToTop');
-      const socialCard = document.getElementById('socialCard');
 
-      if(scrollTop > 300) {
+      if(scrollTop > 200) {
         btnBackToTop.classList.add('show');
         socialCard.classList.add('show');
       } else {
         btnBackToTop.classList.remove('show');
         socialCard.classList.remove('show');
       }
-    }
+
+      const reachedBottom = (window.innerHeight + scrollTop) >= (document.body.offsetHeight - 10);
+      if(reachedBottom) {
+        socialCard.classList.remove('show');
+      }
+    });
   </script>
 </body>
 </html>
