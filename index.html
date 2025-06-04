@@ -371,73 +371,70 @@
   bottom: 20px;
   left: 20px;
   background-color: #12224E;
-  border-radius: 14px;
-  padding: 12px 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  z-index: 999;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
   opacity: 0;
   visibility: hidden;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  z-index: 999;
-  font-weight: 700;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  user-select: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  max-width: 220px;
-  text-align: center;
+  width: 230px;
 }
+
 .social-card.show {
   opacity: 1;
   visibility: visible;
 }
+
 .social-title {
-  margin-bottom: 8px;
-  color: #F7F7F7;
+  text-align: center;
+  color: #f7f7f7;
   font-family: 'Merriweather', serif;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
 }
+
 .social-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  background-color: #0a1638;
   color: #f7f7f7;
-  cursor: pointer;
-  border-radius: 6px;
-  padding: 6px 10px;
-  transition: background-color 0.3s ease;
-  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.social-link:hover,
-.social-link:focus {
-  background-color: #0a1638;
-  outline: none;
-}
-.social-link i {
-  font-size: 18px;
-  width: 22px;
-  text-align: center;
 
-}
 .social-link:hover,
 .social-link:focus {
-  background-color: #0a1638;
+  background-color: #0f214f;
+  transform: translateY(-2px);
   outline: none;
 }
+
 .social-link i {
-  font-size: 18px;
-  width: 22px;
+  font-size: 1.1rem;
+  width: 20px;
   text-align: center;
 }
 
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+@media (max-width: 720px) {
+  .social-card {
+    bottom: 70px;
+    left: 10px;
+    width: 90%;
+    max-width: 300px;
+    font-size: 0.9rem;
+    padding: 14px 16px;
+  }
       }
       .hero-container {
         flex-direction: column;
@@ -556,7 +553,22 @@
       <p>Telefone: (62) 9499-2706</p>
     </div>
     <div class="footer-column">
-      
+      <h3>Redes Sociais</h3>
+      <p>
+        <a href="https://wa.me/556294992706" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </p>
+      <p>
+        <a href="https://instagram.com/wanderson_morais.adv" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+      </p>
+      <p>
+        <a href="https://www.google.com/maps?q=Rua+João+de+Abreu+116+Ed.+Euro+Working+Concept" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-location-dot"></i> Localização
+        </a>
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -568,17 +580,18 @@
   <button id="btnBackToTop" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" tabindex="0">Topo</button>
 
   <aside id="socialCard" class="social-card" aria-label="Redes sociais">
-  <div class="social-title">Fale Comigo</div>
-  <a href="https://wa.me/556294992706" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp do Wanderson Morais" tabindex="0">
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+  <div class="social-card show" aria-label="Contatos rápidos">
+  <div class="social-title">CARD</div>
+  <a href="https://wa.me/5562999999999" target="_blank" class="social-link whatsapp" title="Conversar no WhatsApp">
+    <i class="fab fa-whatsapp"></i> WhatsApp
   </a>
-  <a href="https://instagram.com/wanderson_morais.adv" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram do Wanderson Morais" tabindex="0">
-  <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
-</a>
-
-<a href="https://www.google.com/maps?q=Rua+João+de+Abreu+116+Ed.+Euro+Working+Concept" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Localização no Google Maps" tabindex="0">
-  <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Localização
-</a>
+  <a href="https://instagram.com/seudominio" target="_blank" class="social-link instagram" title="Ver Instagram">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.google.com/maps/place/Endereço+do+Escritório" target="_blank" class="social-link location" title="Abrir localização no mapa">
+    <i class="fas fa-map-marker-alt"></i> Localização
+  </a>
+</div>
 </aside>
 
   <script>
