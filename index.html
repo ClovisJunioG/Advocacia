@@ -18,67 +18,53 @@
       color: #12224E;
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
- .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 20px;
-    text-align: left;
+ .footer-column {
+  flex: 1 1 250px; /* antes: 300px */
+  color: #f0f0f0;
+}
+
+.footer-column h3 {
+  font-size: 1rem; /* antes: 1.1rem */
+  margin-bottom: 6px; /* antes: 10px */
+}
+
+.footer-column p,
+.footer-column a {
+  font-size: 0.85rem; /* antes: 0.95rem */
+  line-height: 1.4;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.75rem; /* antes: 0.85rem */
+  color: #ccc;
+  margin-top: 6px; /* antes: 10px */
+}
+
+@media (max-width: 720px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 16px;
   }
 
   .footer-column {
-    flex: 1 1 300px;
-    color: #f0f0f0;
+    max-width: 360px;
   }
 
   .footer-column h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    font-family: 'Merriweather', serif;
-    color: white;
+    font-size: 0.95rem;
   }
 
-  .footer-column p,
-  .footer-column a {
-    font-size: 0.95rem;
-    color: #f0f0f0;
-    line-height: 1.5;
+  .footer-column p {
+    font-size: 0.8rem;
   }
 
   .footer-bottom {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #ccc;
-    margin-top: 10px;
+    font-size: 0.7rem;
   }
-
-  @media (max-width: 720px) {
-    .footer-content {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-
-    .footer-column {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .footer-column h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .footer-column p {
-      font-size: 0.9rem;
-    }
-
-    .footer-bottom {
-      font-size: 0.75rem;
-    }
-  }
+}
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -375,12 +361,12 @@ body.dark-mode footer {
 }
     footer {
       background-color: #12224E;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
+  color: white;
+  text-align: center;
+  padding: 20px 10px; /
+  margin-top: 40px;
+  font-size: 0.85rem; /
+}
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -635,13 +621,13 @@ body.dark-mode footer {
   <aside id="socialCard" class="social-card" aria-label="Redes sociais">
   <div class="social-card show" aria-label="Contatos rápidos">
   <div class="social-title">CARD</div>
-  <a href="https://wa.me/5562999999999" target="_blank" class="social-link whatsapp" title="Conversar no WhatsApp">
+  <a href="https://wa.me/556294992706" target="_blank" class="social-link whatsapp" title="Conversar no WhatsApp">
     <i class="fab fa-whatsapp"></i> WhatsApp
   </a>
-  <a href="https://instagram.com/seudominio" target="_blank" class="social-link instagram" title="Ver Instagram">
+  <a href="https://instagram.com/wanderson_morais.adv" target="_blank" class="social-link instagram" title="Ver Instagram">
     <i class="fab fa-instagram"></i> Instagram
   </a>
-  <a href="https://www.google.com/maps/place/Endereço+do+Escritório" target="_blank" class="social-link location" title="Abrir localização no mapa">
+  <a href="https://www.google.com/maps?q=Rua+João+de+Abreu+116+Ed.+Euro+Working+Concept" target="_blank" class="social-link location" title="Abrir localização no mapa">
     <i class="fas fa-map-marker-alt"></i> Localização
   </a>
 </div>
